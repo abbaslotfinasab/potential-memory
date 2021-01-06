@@ -13,7 +13,7 @@ class MainViewModel @ViewModelInject constructor(
     private val schedulers: SchedulersProvider
 ): ViewModel() {
 
-    private val questionModel = MutableLiveData<QuestionModel>()
+    val questionModel = MutableLiveData<QuestionModel>()
     private val compositeDisposable = CompositeDisposable()
 
     fun getData() {
@@ -33,13 +33,5 @@ class MainViewModel @ViewModelInject constructor(
     override fun onCleared() {
         compositeDisposable.clear()
     }
-
-
-
-
-
-
-
-
 
 }

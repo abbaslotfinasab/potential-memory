@@ -13,7 +13,7 @@ class QuestionMapper @Inject constructor() {
 
         question.first?:"",
 
-        question.secend?:""
+        question.second?:""
         )
     }
 }

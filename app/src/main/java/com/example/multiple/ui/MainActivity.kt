@@ -2,10 +2,11 @@
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
+import android.widget.TextView
 import com.example.multiple.R
 import com.example.multiple.vm.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
 
  @AndroidEntryPoint
@@ -17,13 +18,17 @@ import javax.inject.Inject
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        startButton.setOnClickListener {
+        val button: Button =findViewById(R.id.startButton)
+        val textView1:TextView=findViewById(R.id.text1)
+        val textView2: TextView =findViewById(R.id.text2)
+
+        button.setOnClickListener {
             viewModel.getData()
         }
         viewModel.questionModel.observe(this, {
             it?.let {
-                text1.text = it.first
-                text2.text = it.secend
+                textView1.text = it.first
+                textView2.text = it.second
             }
         }
         )

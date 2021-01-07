@@ -4,17 +4,17 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
+import androidx.activity.viewModels
 import com.example.multiple.R
 import com.example.multiple.vm.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
-import javax.inject.Inject
 
  @AndroidEntryPoint
  class MainActivity : AppCompatActivity() {
 
-     @Inject lateinit var viewModel:MainViewModel
+    private val mainViewModel by viewModels<MainViewModel> ()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
+     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
@@ -23,9 +23,9 @@ import javax.inject.Inject
         val textView2: TextView =findViewById(R.id.text2)
 
         button.setOnClickListener {
-            viewModel.getData()
+            mainViewModel.getData()
         }
-        viewModel.questionModel.observe(this, {
+        mainViewModel.questionModel.observe(this, {
             it?.let {
                 textView1.text = it.first
                 textView2.text = it.second

@@ -6,12 +6,14 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ApplicationComponent
 import retrofit2.Retrofit
+import javax.inject.Singleton
 
-@InstallIn(ApplicationComponent::class)
 @Module(includes=[NetworkModule::class])
+@InstallIn(ApplicationComponent::class)
 class ApiModule {
 
     @Provides
+    @Singleton
     fun bindApiService(retrofit: Retrofit): Service {
         return retrofit.create(Service::class.java)
     }

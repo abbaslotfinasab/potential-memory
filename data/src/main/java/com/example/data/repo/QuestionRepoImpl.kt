@@ -16,5 +16,4 @@ class QuestionRepoImpl @Inject constructor(
             questionMapper.get().toMapper(it)
         }
     }
-
 }

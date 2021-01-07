@@ -19,12 +19,14 @@ import javax.inject.Singleton
 
 class NetworkModule {
 
+    @Singleton
     @Provides
     fun provideOkHttpClient(): OkHttpClient {
         val okHttpBuilder = OkHttpClient.Builder()
         okHttpBuilder.addInterceptor(HttpLoggingInterceptor())
         return okHttpBuilder.build()
     }
+
 
     @Singleton
     @Provides
@@ -34,6 +36,7 @@ class NetworkModule {
             .create()
     }
 
+    @Singleton
     @Provides
     @Named("auth_retrofit")
     fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit {

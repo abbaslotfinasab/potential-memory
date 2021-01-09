@@ -32,7 +32,6 @@ class MainViewModel @ViewModelInject constructor(
     }
 
     override fun onCleared() {
-        super.onCleared()
         compositeDisposable.clear()
     }
 

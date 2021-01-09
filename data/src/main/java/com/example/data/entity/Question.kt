@@ -3,9 +3,6 @@ package com.example.data.entity
 import android.os.Parcelable
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
-import dagger.Module
-import dagger.hilt.InstallIn
-import dagger.hilt.android.components.ApplicationComponent
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
@@ -15,11 +12,11 @@ data class Question (
     @Expose
     var id:Int?=0,
 
-    @SerializedName("actor")
+    @SerializedName("first")
     @Expose
     var first:String?=null,
 
-    @SerializedName("role")
+    @SerializedName("second")
     @Expose
     var second:String?=null,
 

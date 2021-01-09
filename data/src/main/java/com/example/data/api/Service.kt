@@ -7,5 +7,5 @@ import retrofit2.http.GET
 interface Service {
 
     @GET("/question")
-    fun getQuestion():Single<Question>
+    fun getQuestion(): Single<Question>
 }

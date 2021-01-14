@@ -6,6 +6,7 @@ import retrofit2.http.GET
 
 interface Service {
 
-    @GET("/question")
+    @GET("/question?format=json")
     fun getQuestion(): Single<Question>
+
 }

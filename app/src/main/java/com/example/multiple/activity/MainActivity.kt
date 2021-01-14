@@ -1,4 +1,4 @@
- package com.example.multiple.ui.activity
+ package com.example.multiple.activity
 
 
 import android.os.Build
@@ -9,7 +9,7 @@ import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.annotation.RequiresApi
 import com.example.multiple.R
-import com.example.multiple.ui.viewmodel.MainViewModel
+import com.example.multiple.viewmodel.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
  @AndroidEntryPoint

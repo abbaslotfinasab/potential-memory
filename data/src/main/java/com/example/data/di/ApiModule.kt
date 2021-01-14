@@ -40,7 +40,7 @@ class ApiModule {
     @Singleton
     fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit {
         return Retrofit.Builder()
-            .baseUrl("http://49d8a90a5425.ngrok.io")
+            .baseUrl("http://bd554c66de5b.ngrok.io")
             .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
             .client(okHttpClient)

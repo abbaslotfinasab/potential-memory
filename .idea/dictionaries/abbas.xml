@@ -2,6 +2,7 @@
   <dictionary name="abbas">
     <words>
       <w>gson</w>
+      <w>moshi</w>
     </words>
   </dictionary>
 </component>

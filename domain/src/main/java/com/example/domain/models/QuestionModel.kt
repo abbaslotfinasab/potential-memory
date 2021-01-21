@@ -7,7 +7,9 @@ import kotlinx.parcelize.Parcelize
 data class QuestionModel(
 
     var id:Int?,
+
     var first:String?,
+
     var second:String?
 
 ):Parcelable

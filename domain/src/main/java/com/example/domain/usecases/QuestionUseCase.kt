@@ -5,5 +5,6 @@ import io.reactivex.rxjava3.core.Single
 
 interface QuestionUseCase<R> {
 
-    fun execute(): Single<R>
+     fun execute():Single<R>
+
 }

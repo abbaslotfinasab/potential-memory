@@ -8,7 +8,7 @@ import javax.inject.Inject
 
 class QuestionUseCaseImpl @Inject constructor(private val questionRepo: QuestionRepo):
     QuestionUseCase<QuestionModel>{
-    override fun execute(): Single<QuestionModel> {
+    override fun execute():Single<QuestionModel> {
        return questionRepo.getQuestion()
     }
 

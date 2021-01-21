@@ -1,23 +1,21 @@
 package com.example.data.entity
 
 import android.os.Parcelable
-import com.google.gson.annotations.Expose
-import com.google.gson.annotations.SerializedName
+import com.squareup.moshi.Json
+import com.squareup.moshi.JsonClass
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
+@JsonClass(generateAdapter = true)
 data class Question (
 
-    @SerializedName("id")
-    @Expose
+  @Json(name="id")
     var id:Int?=0,
 
-    @SerializedName("first")
-    @Expose
+  @Json(name="first")
     var first:String?=null,
 
-    @SerializedName("second")
-    @Expose
+  @Json(name="second")
     var second:String?=null,
 
 ):Parcelable

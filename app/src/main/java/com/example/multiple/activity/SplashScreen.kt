@@ -3,6 +3,7 @@ package com.example.multiple.activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 import android.view.View
 import android.widget.*
 import androidx.activity.viewModels
@@ -42,12 +43,11 @@ class SplashScreen : AppCompatActivity() {
         }
         catch (e : IOException){
 
-            e.message?.let { onError(it) }
+            e.message?.let { Handler().postDelayed({onError(it)},3000) }
+
         }
 
-        if(textView.visibility==View.GONE)
-
-            onSuccess()
+            Handler().postDelayed({onSuccess()},3000)
 
     }
 
@@ -66,7 +66,6 @@ class SplashScreen : AppCompatActivity() {
 
         intent = Intent(this,MainActivity::class.java)
         startActivity(intent)
-
 
     }
 

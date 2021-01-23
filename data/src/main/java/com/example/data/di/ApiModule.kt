@@ -6,16 +6,17 @@ import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
-import dagger.hilt.android.components.ApplicationComponent
+import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory
 import retrofit2.converter.moshi.MoshiConverterFactory
+import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
 @Module
-@InstallIn(ApplicationComponent::class)
+@InstallIn(SingletonComponent::class)
 
 class ApiModule {
 
@@ -23,6 +24,8 @@ class ApiModule {
     @Singleton
     fun provideOkHttpClient(): OkHttpClient {
         val okHttpBuilder = OkHttpClient.Builder()
+        okHttpBuilder.connectTimeout(30,TimeUnit.SECONDS)
+        okHttpBuilder.readTimeout(30,TimeUnit.SECONDS)
         okHttpBuilder.addInterceptor(HttpLoggingInterceptor())
         return okHttpBuilder.build()
     }

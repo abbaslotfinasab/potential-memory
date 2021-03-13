@@ -5,6 +5,7 @@ import com.example.domain.models.QuestionModel
 import javax.inject.Inject
 
 class QuestionMapper @Inject constructor() {
+
     fun toMapper (question:Question):QuestionModel{
 
         return QuestionModel(

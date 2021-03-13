@@ -5,7 +5,6 @@ import com.example.data.mapper.QuestionMapper
 import com.example.data.util.NetworkHelper
 import com.example.domain.models.QuestionModel
 import com.example.domain.repositories.QuestionRepo
-import io.reactivex.rxjava3.core.Single
 import java.io.IOException
 import javax.inject.Inject
 import kotlin.jvm.Throws
@@ -20,26 +19,24 @@ class QuestionRepoImpl @Inject constructor(
 
     @Throws(IOException::class)
 
-    override fun getQuestion(): Single<QuestionModel> {
+    override suspend fun getQuestion(): List<QuestionModel> {
 
         if (networkHelper.isNetworkConnected()) {
 
-            return if (service.getQuestion().blockingGet().isSuccessful && service.getQuestion()
-                    .blockingGet().body() != null
-            ) {
+            return if (service.getQuestion().isSuccessful && service.getQuestion().body() != null) {
 
-                service.getQuestion().map {
+                service.getQuestion().body()!!.map {
 
-                    it.body()?.let { it1 -> questionMapper.get().toMapper(it1) }
+                    questionMapper.get().toMapper(it)
                 }
 
             } else
-                throw IOException("Server is Not Responding")
-        }
+                throw IOException("Sever is Not Responding")
 
-        else
+        } else
             throw IOException("No Internet Connection")
     }
 
 }
+
 

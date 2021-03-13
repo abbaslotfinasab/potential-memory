@@ -13,19 +13,5 @@
         android:layout_centerInParent="true"
         android:text="@string/start"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/text1"
-        android:layout_below="@id/startButton"
-        android:layout_centerInParent="true"
-        android:layout_marginTop="20dp"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/text2"
-        android:layout_below="@id/text1"
-        android:layout_centerInParent="true"
-        android:layout_marginTop="20dp"/>
 
 </RelativeLayout>
